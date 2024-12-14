@@ -3,7 +3,7 @@ const Vehicle = require('../models/Vehicle');
 const router = express.Router();
 
 // Get all vehicles
-router.get('/vehicles', async (req, res) => {
+router.get('/api/vehicles', async (req, res) => {
     try {
         const vehicles = await Vehicle.find();
         res.status(200).json(vehicles);
@@ -13,7 +13,7 @@ router.get('/vehicles', async (req, res) => {
 });
 
 // Add a new vehicle
-router.post('/vehicles', async (req, res) => {
+router.post('/api/vehicles', async (req, res) => {
     const { name, status, lastUpdated } = req.body;
 
     try {
@@ -31,17 +31,17 @@ router.post('/vehicles', async (req, res) => {
 });
 
 // Delete a vehicle
-router.delete('/vehicles/:id', async (req, res) => {
+router.delete('/api/vehicles/:id', async (req, res) => {
     try {
         await Vehicle.findByIdAndDelete(req.params.id);
         res.json({ message: 'Vehicle deleted' });
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: 'Error deleting vehicle', error: err.message });
     }
 });
 
 // Update a vehicle
-router.put('/vehicles/:id', async (req, res) => {
+router.put('/api/vehicles/:id', async (req, res) => {
     const { id } = req.params;
     const { name, status, lastUpdated } = req.body;
 
