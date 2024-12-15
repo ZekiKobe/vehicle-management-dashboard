@@ -1,0 +1,27 @@
+.add-vehicle-form{
+    width: 80%;
+    box-shadow: 2px 2px 2px 2px gray;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+.add-vehicle-form input{
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 20px;
+}
+.add-vehicle-form button{
+    width: 20%;
+    height: 40px;
+    background-color: orangered;
+    color: white;
+    font-weight: 500;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+}
